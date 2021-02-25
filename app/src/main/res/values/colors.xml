@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/primary_900</color>
+    <color name="colorPrimaryDark">#0B1220</color>
+    <color name="colorAccent">#FCA311</color>
+
+    <!--    kolory przykładowe-->
+    <color name="cool_grey">#A2A4AD</color>
+    <color name="battleship_grey">#6B6E7D</color>
+
+    <color name="black">#000</color>
+    <color name="white">#FFF</color>
+
+    <color name="pale_grey">#FAFAFC</color>
+    <color name="pale_grey_two">#F7F7FA</color>
+    <color name="pale_grey_three">#DFE0E6</color>
+
+    <color name="error_text_color">#B30000</color>
+    <color name="error_background_color">#A82929</color>
+
+    <color name="primary_900">#E65100</color>
+    <color name="primary_800">#EF6C00</color>
+    <color name="primary_700">#F57C00</color>
+    <color name="primary_600">#FB8C00</color>
+    <color name="primary_500">#FF9800</color>
+    <color name="primary_400">#FFA726</color>
+    <color name="primary_300">#FFB74D</color>
+    <color name="primary_200">#FFCC80</color>
+    <color name="primary_100">#FFE0B2</color>
+    <color name="primary_50">#FFF3E0</color>
+
+    <color name="transparent">#9000</color>
+    <color name="defaultBackgroundColor">#FAFAFA</color>
+</resources>

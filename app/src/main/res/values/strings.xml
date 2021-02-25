@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Cookit</string>
+    <string name="home">Home</string>
+    <string name="add">Dodaj</string>
+    <string name="my_recipes">Moje przepisy</string>
+    <string name="calendar">Kalendarz</string>
+    <string name="search_hint"><i>Wyszukaj</i></string>
+</resources>
