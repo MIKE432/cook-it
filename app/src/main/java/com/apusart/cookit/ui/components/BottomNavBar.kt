@@ -4,12 +4,13 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.apusart.cookit.R
 import com.apusart.cookit.tools.setDrawableTint
-import kotlinx.android.synthetic.main.top_navigation.view.*
+import kotlinx.android.synthetic.main.bottom_navigation.view.*
 
 class BottomNavBar @JvmOverloads constructor(
     context: Context,
@@ -19,16 +20,16 @@ class BottomNavBar @JvmOverloads constructor(
 
     companion object {
         const val HOME = 0
-        const val ADD_RECIPE = 1
-        const val MY_RECIPES = 2
-        const val CALENDAR = 3
+        const val MY_RECIPES = 1
+        const val CALENDAR = 2
         const val SELECTED_ICON_TINT_COLOR = R.color.black
         const val NOT_SELECTED_ICON_TINT_COLOR = R.color.primary_50
     }
 
-
     private val mView = LayoutInflater.from(context)
-        .inflate(R.layout.top_navigation, this, false)
+        .inflate(R.layout.bottom_navigation, this, false)
+
+    private var mHeight = 0
 
     var selectedItem = 0
         set(value) {
@@ -42,36 +43,39 @@ class BottomNavBar @JvmOverloads constructor(
     }
 
     fun setOnHomeClickListener(f: (View) -> Unit) {
-        mView.nav_home.setOnClickListener(f)
-    }
-
-    fun setOnAddRecipeClickListener(f: (View) -> Unit) {
-        mView.nav_add_recipe.setOnClickListener(f)
+        mView.nav_home.setOnClickListener {
+            if (selectedItem != HOME)
+                f(it)
+        }
     }
 
     fun setOnMyRecipesClickListener(f: (View) -> Unit) {
-        mView.nav_my_recipes.setOnClickListener(f)
+        mView.nav_my_recipes.setOnClickListener {
+            if (selectedItem != MY_RECIPES)
+                f(it)
+        }
     }
 
     fun setOnCalendarClickListener(f: (View) -> Unit) {
-        mView.nav_calendar.setOnClickListener(f)
+        mView.nav_calendar.setOnClickListener {
+            if (selectedItem != CALENDAR)
+                f(it)
+        }
     }
 
     private fun selectCurrentItem() {
         when (selectedItem) {
             0 -> animateSelect(mView.nav_home)
-            1 -> animateSelect(mView.nav_add_recipe)
-            2 -> animateSelect(mView.nav_my_recipes)
-            3 -> animateSelect(mView.nav_calendar)
+            1 -> animateSelect(mView.nav_my_recipes)
+            2 -> animateSelect(mView.nav_calendar)
         }
     }
 
     private fun deselectCurrentItem() {
         when (selectedItem) {
             0 -> animateDeselect(mView.nav_home)
-            1 -> animateDeselect(mView.nav_add_recipe)
-            2 -> animateDeselect(mView.nav_my_recipes)
-            3 -> animateDeselect(mView.nav_calendar)
+            1 -> animateDeselect(mView.nav_my_recipes)
+            2 -> animateDeselect(mView.nav_calendar)
         }
     }
 
@@ -94,14 +98,10 @@ class BottomNavBar @JvmOverloads constructor(
                 mView.nav_home_image.setDrawableTint(NOT_SELECTED_ICON_TINT_COLOR)
             }
             1 -> {
-                mView.nav_add_recipe_text.isVisible = false
-                mView.nav_add_recipe_image.setDrawableTint(NOT_SELECTED_ICON_TINT_COLOR)
-            }
-            2 -> {
                 mView.nav_my_recipes_text.isVisible = false
                 mView.nav_my_recipes_image.setDrawableTint(NOT_SELECTED_ICON_TINT_COLOR)
             }
-            3 -> {
+            2 -> {
                 mView.nav_calendar_text.isVisible = false
                 mView.nav_calendar_image.setDrawableTint(NOT_SELECTED_ICON_TINT_COLOR)
             }
@@ -115,22 +115,19 @@ class BottomNavBar @JvmOverloads constructor(
                 mView.nav_home_image.setDrawableTint(SELECTED_ICON_TINT_COLOR)
             }
             1 -> {
-                mView.nav_add_recipe_text.isVisible = true
-                mView.nav_add_recipe_image.setDrawableTint(SELECTED_ICON_TINT_COLOR)
-            }
-            2 -> {
                 mView.nav_my_recipes_text.isVisible = true
                 mView.nav_my_recipes_image.setDrawableTint(SELECTED_ICON_TINT_COLOR)
             }
-            3 -> {
+            2 -> {
                 mView.nav_calendar_text.isVisible = true
                 mView.nav_calendar_image.setDrawableTint(SELECTED_ICON_TINT_COLOR)
             }
         }
     }
 
-    private fun changeSelectedIconTint() {
+    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+        super.onLayout(changed, l, t, r, b)
 
+        mHeight = b - t
     }
-
 }

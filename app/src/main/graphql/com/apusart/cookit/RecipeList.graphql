@@ -1,0 +1,18 @@
+query RecipeList {
+    recipes {
+        description
+        name
+        id
+        instructions {
+            displayText
+            temperature
+        }
+        components {
+            rawText
+            measurement {
+                unit
+                quantity
+            }
+        }
+    }
+}

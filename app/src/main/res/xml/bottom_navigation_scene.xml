@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/nav_home"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:animateLayoutChanges="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/nav_add_recipe"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/nav_home_text"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:animateLayoutChanges="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/nav_my_recipes"
+            app:layout_constraintStart_toEndOf="@id/nav_home"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <Constraint
+            android:id="@+id/nav_add_recipe"
+            android:layout_marginVertical="10dp"
+            android:animateLayoutChanges="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/nav_calendar"
+            app:layout_constraintStart_toEndOf="@id/nav_add_recipe"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/nav_my_recipes"
+            android:layout_marginVertical="10dp"
+            android:animateLayoutChanges="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/nav_my_recipes"
+            app:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/nav_home"
+            android:layout_marginVertical="10dp"
+            android:animateLayoutChanges="true"
+            android:gravity="center"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/nav_add_recipe"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/nav_home_text"
+            android:layout_marginVertical="10dp"
+            android:animateLayoutChanges="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/nav_my_recipes"
+            app:layout_constraintStart_toEndOf="@id/nav_home"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <Constraint
+            android:id="@+id/nav_add_recipe"
+            android:layout_marginVertical="10dp"
+            android:animateLayoutChanges="true"
+            android:gravity="center"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/nav_calendar"
+            app:layout_constraintStart_toEndOf="@id/nav_add_recipe"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/nav_my_recipes"
+            android:layout_marginVertical="10dp"
+            android:animateLayoutChanges="true"
+            android:gravity="center"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/nav_my_recipes"
+            app:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start">
+
+        <OnClick
+            app:clickAction="transitionToEnd"
+            app:targetId="@+id/rateUsButton" />
+    </Transition>
+</MotionScene>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/home_fragment">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.apusart.cookit.ui.fragments.home.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/calendar_fragment"
+        android:name="com.apusart.cookit.ui.fragments.calendar.CalendarFragment"
+        android:label="CalendarFragment" />
+    <fragment
+        android:id="@+id/my_recipes_fragment"
+        android:name="com.apusart.cookit.ui.fragments.my_recipes.MyRecipesFragment"
+        android:label="MyRecipesFragment" />
+    <fragment
+        android:id="@+id/search_fragment"
+        android:name="com.apusart.cookit.ui.fragments.search.SearchFragment"
+        android:label="SearchFragment" />
+</navigation>
