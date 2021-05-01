@@ -36,9 +36,9 @@ fun showKeyboardFrom(context: Context, view: View) {
 
 suspend inline fun <D : Operation.Data, T, V : Operation.Variables, reified X : Query<D, T, V>> performRequest(
     apolloClient: ApolloClient,
-    clazz: Class<X>
+    clazz: X
 ): Resource<T> {
-    val resource = apolloClient.query(clazz.newInstance()).await()
+    val resource = apolloClient.query(clazz).await()
     return resolveRequest(resource)
 }
 

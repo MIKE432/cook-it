@@ -1,0 +1,1 @@
+gradlew downloadApolloSchema --endpoint="http://localhost:3000/graphql" --schema="app/src/main/graphql/com/apusart/cookit/schema.json"

@@ -1,5 +1,5 @@
-query RecipeList {
-    recipes {
+query RecipeScopedList($from: Float!, $to: Float!) {
+    scopedRecipes(from: $from, to: $to) {
         description
         name
         id
